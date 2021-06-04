@@ -159,5 +159,9 @@
     <preference for="Magento\TwoFactorAuth\Api\UserConfigRequestManagerInterface" type="Magento\TwoFactorAuth\Model\UserConfig\UserConfigRequestManager" />
     <preference for="Magento\TwoFactorAuth\Api\UserConfigTokenManagerInterface" type="Magento\TwoFactorAuth\Model\UserConfig\SignedTokenManager" />
     <preference for="Magento\TwoFactorAuth\Api\UserNotifierInterface" type="Magento\TwoFactorAuth\Model\EmailUserNotifier" />
-    <preference for="Magento\TwoFactorAuth\Observer\ControllerActionPredispatch" type="Magento\TwoFactorAuth\TestFramework\ControllerActionPredispatch" />
+
+    <type name="Magento\TwoFactorAuth\Observer\ControllerActionPredispatch">
+        <plugin name="bypass_tfa_on_testframework_tests"
+                type="Magento\TwoFactorAuth\Plugin\BypassTwoFactorAuthorisationForTestFrameworkTest" />
+    </type>
 </config>
